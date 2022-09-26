@@ -11,6 +11,12 @@ interface HomeProps {
   }
 }
 
+/* 3 tipos de chamadas no netx
+   client-side
+   server-side
+   static side generation
+*/
+
 export default function Home({ product }: HomeProps) {
   return (
     <>
@@ -50,6 +56,7 @@ export const getStaticProps: GetStaticProps = async () =>{
   return{
     props: {
       product
-    }
+    },
+    revalidate: 60 * 60 * 24 //24 horas
   }
 }
